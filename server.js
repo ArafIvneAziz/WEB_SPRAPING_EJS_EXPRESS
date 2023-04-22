@@ -31,15 +31,16 @@ async function performScraping() {
 
   // Scraping the "What makes Bright Data
   // the undisputed industry leader" section
-  $(".e-con-inner")
-  .find(".elementor-element-7942181b")
+
+  $(".elementor-element-7942181b")
+    .find(".elementor-image-box-wrapper")
     .each((index, element) => {
       // Extracting the data of interest
       const image = $(element)
-        .find(".elementor-image-box-img").find("a").find("img")
-        .attr("href");
+        .find(".elementor-image-box-img img")
+        .attr("data-lazy-src");
       const title = $(element)
-        .find("elementor-image-box-title").find("a")
+        .find(".elementor-image-box-title a")
         .text();
 
       // Converting the data extracted into a more
